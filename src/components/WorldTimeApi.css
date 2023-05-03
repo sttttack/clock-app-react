@@ -1,0 +1,70 @@
+.timeZone {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 355px;
+}
+
+.zone {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 28px;
+  color: #ffffff;
+}
+
+.hours {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 100px;
+  line-height: 100px;
+  letter-spacing: -2.5px;
+  color: #ffffff;
+}
+
+.morning,
+.city {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 25px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.more {
+  width: 115px;
+  height: 39px;
+  border-radius: 28px;
+  border: none;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  position: relative;
+  top: 400px;
+  justify-content: space-evenly;
+}
+
+.more p {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 3.75px;
+  text-transform: uppercase;
+  color: #000000;
+  mix-blend-mode: normal;
+  opacity: 0.5;
+}
+
+.oval {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #303030;
+}

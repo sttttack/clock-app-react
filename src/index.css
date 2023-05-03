@@ -1,0 +1,29 @@
+:root {
+  --dayMobile: url("./assets/mobile/bg-image-daytime.jpg");
+  --nightMobile: url("./assets/mobile/bg-image-nighttime.jpg");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  background-image: var(--dayMobile);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  margin-left: 26px;
+  margin-right: 26px;
+}
+
+.dayTime {
+  background-image: var(--dayMobile);
+  background-repeat: no-repeat;
+}
+
+.nightTime {
+  background-image: var(--nightMobile);
+  background-repeat: no-repeat;
+}
