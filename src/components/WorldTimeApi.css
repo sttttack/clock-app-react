@@ -1,8 +1,11 @@
+.heroku {
+  position: relative;
+  margin-top: 220px;
+}
+
 .timeZone {
   display: flex;
   flex-direction: column;
-  position: relative;
-  top: 280px;
 }
 
 .zone {
@@ -44,11 +47,10 @@
   background-color: #ffffff;
   display: flex;
   align-items: center;
-  position: relative;
-  top: 300px;
   justify-content: space-between;
   padding-left: 10px;
   padding-right: 5px;
+  margin-top: 86px;
 }
 
 .more p {

@@ -5,11 +5,11 @@ import Quotes from "./components/Quotes";
 
 function App() {
   return (
-    <>
+    <div>
       <Quotes />
       <WorldTimeApi />
       <p></p>
-    </>
+    </div>
   );
 }
 

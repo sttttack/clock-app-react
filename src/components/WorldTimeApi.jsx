@@ -28,7 +28,7 @@ export default function WorldTimeApi() {
   const hours = time[1]?.substring(0, 5);
 
   return (
-    <>
+    <div className="heroku">
       <div className="timeZone">
         <div className="greetings">
           <img src={Sun}></img>
@@ -46,6 +46,6 @@ export default function WorldTimeApi() {
           <div className="oval"></div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
