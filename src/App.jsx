@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import WorldTimeApi from "./components/WorldTimeApi";
-import GeoLocation from "./components/GeoLocation";
+import Quotes from "./components/Quotes";
 
 function App() {
   return (
     <>
-      {/* <GeoLocation /> */}
+      <Quotes />
       <WorldTimeApi />
       <p></p>
     </>

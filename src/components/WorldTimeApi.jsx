@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../components/WorldTimeApi.css";
-import App from "../App";
+
+import Sun from "../assets/desktop/icon-sun.svg";
 
 export default function WorldTimeApi() {
   const [data, setData] = useState();
@@ -29,9 +30,14 @@ export default function WorldTimeApi() {
   return (
     <>
       <div className="timeZone">
-        <p className="morning">Good Morning</p>
-        <p className="hours">{hours}</p>
-        <p className="zone">{dst}</p>
+        <div className="greetings">
+          <img src={Sun}></img>
+          <p className="morning">Good Morning</p>
+        </div>
+        <div className="format">
+          <p className="hours">{hours}</p>
+          <p className="zone">{dst}</p>
+        </div>
         <p className="city">Newport Beach, CA</p>
       </div>
       <div>

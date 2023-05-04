@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  top: 355px;
+  top: 280px;
 }
 
 .zone {
@@ -45,8 +45,10 @@
   display: flex;
   align-items: center;
   position: relative;
-  top: 400px;
-  justify-content: space-evenly;
+  top: 300px;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 5px;
 }
 
 .more p {
@@ -67,4 +69,22 @@
   height: 32px;
   border-radius: 50%;
   background-color: #303030;
+  background-image: url("../assets/desktop/icon-arrow-down.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-y: 12px;
+}
+
+.greetings {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.format {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 14px;
 }

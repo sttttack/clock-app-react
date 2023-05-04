@@ -1,0 +1,22 @@
+.quotes {
+  margin-top: 32px;
+}
+
+.author {
+  margin-top: 8px;
+  font-family: "Inter";
+  font-style: bold;
+  font-weight: 700;
+  font-size: 12px;
+  color: black;
+}
+
+.content {
+  width: 290px;
+  height: auto;
+  font-style: regular;
+  font-size: 12px;
+  line-height: 22px;
+  text-align: left;
+  color: black;
+}
