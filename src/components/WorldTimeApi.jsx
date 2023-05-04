@@ -10,18 +10,16 @@ export default function WorldTimeApi() {
   const [dst, setDst] = useState("");
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      const fetchData = async () => {
-        const response = await fetch("http://worldtimeapi.org/api/ip");
-        const json = await response.json();
-        setData(json);
-        setIp(json.client_ip);
-        setDate(json.datetime);
-        setDst(json.abbreviation);
-      };
+    const fetchData = async () => {
+      const response = await fetch("http://worldtimeapi.org/api/ip");
+      const json = await response.json();
+      setData(json);
+      setIp(json.client_ip);
+      setDate(json.datetime);
+      setDst(json.abbreviation);
+    };
 
-      fetchData();
-    }, 1000);
+    fetchData();
   }, []);
 
   const time = date.split("T");
