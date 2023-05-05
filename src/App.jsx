@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import "./index.css";
 import WorldTimeApi from "./components/WorldTimeApi";
 import Quotes from "./components/Quotes";
 
@@ -8,7 +9,6 @@ function App() {
     <div>
       <Quotes />
       <WorldTimeApi />
-      <p></p>
     </div>
   );
 }

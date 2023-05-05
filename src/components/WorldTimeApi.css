@@ -1,6 +1,11 @@
 .heroku {
   position: relative;
   margin-top: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 185px;
+  gap: 50px;
 }
 
 .timeZone {
@@ -50,7 +55,6 @@
   justify-content: space-between;
   padding-left: 10px;
   padding-right: 5px;
-  margin-top: 86px;
 }
 
 .more p {
