@@ -45,7 +45,7 @@ export default function WorldTimeApi() {
   const loc = location.split("/");
   const locationCity = loc[1];
 
-  console.log(unit);
+  console.log(unitHours);
 
   // if (unit === "PM") {
   //   document.body.style.backgroundImage = `url("./src/assets/mobile/bg-image-daytime.jpg")`;
@@ -57,7 +57,7 @@ export default function WorldTimeApi() {
     <div className="heroku">
       <div className="timeZone">
         <div className="greetings">
-          <img src={unit === "PM" && unitHours > 5 ? Sun : Moon}></img>
+          <img src={unit === "AM" && unitHours > 5 ? Sun : Moon}></img>
           <p className="morning">
             {unitHours && timeHours <= 12 ? "Good Morning" : "Good Afternoon"}
           </p>
