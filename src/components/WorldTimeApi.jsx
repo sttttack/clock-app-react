@@ -53,13 +53,17 @@ export default function WorldTimeApi() {
   //   document.body.style.backgroundImage = `url("./src/assets/mobile/bg-image-nighttime.jpg")`;
   // }
 
+  // - "Good morning" between 5am and 12pm
+  // - "Good afternoon" between 12pm and 6pm
+  // - "Good evening" between 6pm and 5am
+
   return (
     <div className="heroku">
       <div className="timeZone">
         <div className="greetings">
           <img src={unit === "AM" && unitHours > 5 ? Sun : Moon}></img>
           <p className="morning">
-            {unitHours && timeHours <= 12 ? "Good Morning" : "Good Afternoon"}
+            {unit === "AM" && unitHours > 5 ? "GOOD MORNING" : "GOOD EVENING"}
           </p>
         </div>
         <div className="format">
