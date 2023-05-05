@@ -57,7 +57,7 @@ export default function WorldTimeApi() {
     <div className="heroku">
       <div className="timeZone">
         <div className="greetings">
-          <img src={unit === "PM" ? Sun : Moon}></img>
+          <img src={unit === "PM" && unitHours > 5 ? Sun : Moon}></img>
           <p className="morning">
             {unitHours && timeHours <= 12 ? "Good Morning" : "Good Afternoon"}
           </p>
