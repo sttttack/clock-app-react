@@ -14,7 +14,7 @@ export default function WorldTimeApi() {
   useEffect(() => {
     const interval = setInterval(() => {
       const fetchData = async () => {
-        const response = await fetch("http://worldtimeapi.org/api/ip", {
+        const response = await fetch("https://worldtimeapi.org/api/ip", {
           method: "GET",
         });
         const json = await response.json();
@@ -48,18 +48,16 @@ export default function WorldTimeApi() {
   console.log(unit);
 
   if (unit === "PM") {
-    document.body.style.backgroundImage =
-      "url('src/assets/mobile/bg-image-daytime.jpg";
+    document.body.style.backgroundImage = `url("./src/assets/mobile/bg-image-daytime.jpg")`;
   } else if (unit === "AM") {
-    document.body.style.backgroundImage =
-      "url('src/assets/mobile/bg-image-nighttime.jpg";
+    document.body.style.backgroundImage = `url("./src/assets/mobile/bg-image-nighttime.jpg")`;
   }
 
   return (
     <div className="heroku">
       <div className="timeZone">
         <div className="greetings">
-          <img src={Sun}></img>
+          <img src={unit === "PM" ? Sun : Moon}></img>
           <p className="morning">
             {unitHours && timeHours <= 12 ? "Good Morning" : "Good Afternoon"}
           </p>

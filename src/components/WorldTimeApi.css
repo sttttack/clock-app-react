@@ -94,3 +94,7 @@
   align-items: baseline;
   gap: 14px;
 }
+
+img {
+  cursor: pointer;
+}
