@@ -47,11 +47,11 @@ export default function WorldTimeApi() {
 
   console.log(unit);
 
-  if (unit === "PM") {
-    document.body.style.backgroundImage = `url("./src/assets/mobile/bg-image-daytime.jpg")`;
-  } else if (unit === "AM") {
-    document.body.style.backgroundImage = `url("./src/assets/mobile/bg-image-nighttime.jpg")`;
-  }
+  // if (unit === "PM") {
+  //   document.body.style.backgroundImage = `url("./src/assets/mobile/bg-image-daytime.jpg")`;
+  // } else if (unit === "AM") {
+  //   document.body.style.backgroundImage = `url("./src/assets/mobile/bg-image-nighttime.jpg")`;
+  // }
 
   return (
     <div className="heroku">
