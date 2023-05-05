@@ -3,6 +3,8 @@ import "../components/WorldTimeApi.css";
 
 import Sun from "../assets/desktop/icon-sun.svg";
 import Moon from "../assets/desktop/icon-moon.svg";
+import backgroundDay from "../assets/mobile/bg-image-daytime.jpg";
+import backgroundNight from "../assets/mobile/bg-image-Nighttime.jpg";
 
 export default function WorldTimeApi() {
   const [data, setData] = useState();
@@ -45,17 +47,11 @@ export default function WorldTimeApi() {
   const loc = location.split("/");
   const locationCity = loc[1];
 
-  console.log(unitHours);
-
-  // if (unit === "PM") {
-  //   document.body.style.backgroundImage = `url("./src/assets/mobile/bg-image-daytime.jpg")`;
-  // } else if (unit === "AM") {
-  //   document.body.style.backgroundImage = `url("./src/assets/mobile/bg-image-nighttime.jpg")`;
-  // }
-
-  // - "Good morning" between 5am and 12pm
-  // - "Good afternoon" between 12pm and 6pm
-  // - "Good evening" between 6pm and 5am
+  if (unit === "PM") {
+    document.body.style.backgroundImage = `url(${backgroundDay})`;
+  } else if (unit === "AM") {
+    document.body.style.backgroundImage = `url(${backgroundNight})`;
+  }
 
   return (
     <div className="heroku">
