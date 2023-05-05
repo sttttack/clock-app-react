@@ -47,9 +47,9 @@ export default function WorldTimeApi() {
   const loc = location.split("/");
   const locationCity = loc[1];
 
-  if (unit === "PM") {
+  if (unit === "PM" && unitHours > 5) {
     document.body.style.backgroundImage = `url(${backgroundDay})`;
-  } else if (unit === "AM") {
+  } else if (unit === "AM" && unitHours < 5) {
     document.body.style.backgroundImage = `url(${backgroundNight})`;
   }
 
