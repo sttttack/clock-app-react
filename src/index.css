@@ -10,7 +10,7 @@
 }
 
 body {
-  background-image: var(--nightMobile);
+  /* background-image: var(--nightMobile); */
   background-repeat: no-repeat;
   background-size: 100% auto;
   margin-left: 26px;
