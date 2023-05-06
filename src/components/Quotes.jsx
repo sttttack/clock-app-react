@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from "react";
-import Refresh from "../assets/desktop/icon-refresh.svg";
+import React, { useState, useEffect, useContext } from "react";
+import { HiddenContext } from "../App";
+
 import "../components/Quotes.css";
+import Refresh from "../assets/desktop/icon-refresh.svg";
 
 export default function Quotes() {
   const [data, setData] = useState([]);
+  const [hidden, setHidden] = useContext(HiddenContext);
+  console.log(hidden);
 
   const fetchData = () => {
     const url = "https://api.quotable.io/random";
@@ -19,7 +23,7 @@ export default function Quotes() {
   return (
     <div>
       {data.map((item) => (
-        <div key={item._id} className="quotes">
+        <div key={item._id} className={hidden ? "quotes" : "active"}>
           <div className="quote_fresh">
             <p className="content">“{item.content}”</p>
             <div>

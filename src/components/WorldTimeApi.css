@@ -1,6 +1,6 @@
 .heroku {
   position: relative;
-  margin-top: 220px;
+  margin-top: 188px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -11,6 +11,7 @@
 .timeZone {
   display: flex;
   flex-direction: column;
+  gap: 16px;
 }
 
 .zone {
@@ -49,6 +50,7 @@
   height: 39px;
   border-radius: 28px;
   border: none;
+  margin-top: 36px;
   background-color: #ffffff;
   display: flex;
   align-items: center;
@@ -97,4 +99,37 @@
 
 img {
   cursor: pointer;
+}
+
+.box {
+  display: none;
+  position: fixed;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-top: 91px;
+  left: 0;
+  padding-left: 26px;
+  padding-right: 26px;
+  width: 100%;
+  height: 256px;
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.box span {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 10px;
+  line-height: 28px;
+  color: #303030;
+}
+
+.info {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #303030;
 }

@@ -1,8 +1,3 @@
-:root {
-  --dayMobile: url("./assets/mobile/bg-image-daytime.jpg");
-  --nightMobile: url("./assets/mobile/bg-image-nighttime.jpg");
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -10,18 +5,11 @@
 }
 
 body {
-  /* background-image: var(--nightMobile); */
   background-repeat: no-repeat;
-  background-size: 100% auto;
-  margin-left: 26px;
-  margin-right: 26px;
-}
-
-.dayTime {
-  background-image: var(--dayMobile);
-  background-repeat: no-repeat;
-}
-
-.nightTime {
-  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: auto;
+  height: 100vmax;
+  padding-left: 26px;
+  padding-right: 26px;
+  padding-top: 32px;
 }

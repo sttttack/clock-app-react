@@ -1,6 +1,9 @@
 .quotes {
-  margin-top: 32px;
   height: 100px;
+}
+
+.active {
+  display: none;
 }
 
 .author {
