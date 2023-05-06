@@ -20,7 +20,20 @@ export default function WorldTimeApi() {
   const hiddenBox = document.querySelector(".box");
   const timeBox = document.querySelector(".heroku");
   const moreBtn = document.querySelector(".more");
-  const ovalBox = document.querySelector(".oval");
+
+  // Converting 24 hour unit to AM/PM
+
+  const time = date.split("T");
+  const hours = time[1]?.substring(0, 5);
+  const splitTime = hours?.split(":");
+  const jsonTime = JSON.stringify(splitTime);
+  const timeHours = jsonTime?.slice(2, 4);
+  const timeMinutes = jsonTime?.slice(7, 9);
+  const unit = timeHours >= 12 ? "PM" : "AM";
+  const unitHours = timeHours % 12 || 12;
+  const finalTime = unitHours + ":" + timeMinutes;
+  const loc = location.split("/");
+  const locationCity = loc[1];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -38,28 +51,15 @@ export default function WorldTimeApi() {
         setNumber(json.week_number);
       };
 
+      if (unit === "PM") {
+        document.body.style.backgroundImage = `url(${backgroundDay})`;
+        document.body.style.backdropFilter = "brightness(60%)";
+      } else if (unit === "AM") {
+        document.body.style.backgroundImage = `url(${backgroundNight})`;
+      }
       fetchData();
     }, 1000);
   }, []);
-
-  const time = date.split("T");
-  const hours = time[1]?.substring(0, 5);
-  const splitTime = hours?.split(":");
-  const jsonTime = JSON.stringify(splitTime);
-  const timeHours = jsonTime?.slice(2, 4);
-  const timeMinutes = jsonTime?.slice(7, 9);
-  const unit = timeHours >= 12 ? "PM" : "AM";
-  const unitHours = timeHours % 12 || 12;
-  const finalTime = unitHours + ":" + timeMinutes;
-  const loc = location.split("/");
-  const locationCity = loc[1];
-
-  if (unit === "PM") {
-    document.body.style.backgroundImage = `url(${backgroundDay})`;
-    document.body.style.backdropFilter = "brightness(60%)";
-  } else if (unit === "AM") {
-    document.body.style.backgroundImage = `url(${backgroundNight})`;
-  }
 
   const clickMore = () => {
     hiddenBox.style.display = "flex";
@@ -86,7 +86,9 @@ export default function WorldTimeApi() {
           </p>
         </div>
         <div className="format">
-          <p className="hours">{finalTime}</p>
+          <p className="hours">
+            {timeMinutes === undefined ? null : finalTime}
+          </p>
           <p className="zone">{unit}</p>
           <p className="zone">{dst}</p>
         </div>
