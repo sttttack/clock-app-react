@@ -20,6 +20,7 @@ export default function WorldTimeApi() {
   const hiddenBox = document.querySelector(".box");
   const timeBox = document.querySelector(".heroku");
   const moreBtn = document.querySelector(".more");
+  const ovalBox = document.querySelector(".oval");
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -99,7 +100,7 @@ export default function WorldTimeApi() {
           }}
         >
           <p>MORE</p>
-          <div className="oval"></div>
+          <div className={hidden ? "oval" : "upSideDown"}></div>
         </div>
       </div>
       <div className="box">

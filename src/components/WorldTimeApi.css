@@ -80,7 +80,16 @@
   background-image: url("../assets/desktop/icon-arrow-down.svg");
   background-repeat: no-repeat;
   background-position: center;
-  background-position-y: 12px;
+}
+
+.upSideDown {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #303030;
+  background-image: url("../assets/desktop/icon-arrow-up.svg");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .greetings {
