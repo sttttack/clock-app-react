@@ -29,6 +29,30 @@
 .quote_fresh {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .quotes {
+    width: 573px;
+    height: 125px;
+  }
+
+  .author {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .content {
+    font-size: 18px;
+    line-height: 28px;
+    width: auto;
+  }
+
+  .refresh {
+    position: relative;
+    left: 16px;
+  }
 }

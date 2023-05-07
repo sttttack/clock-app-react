@@ -29,6 +29,7 @@ export default function Quotes() {
             <div>
               <img
                 src={Refresh}
+                className="refresh"
                 onClick={() => {
                   fetchData();
                 }}

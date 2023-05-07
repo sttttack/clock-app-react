@@ -6,6 +6,8 @@ import { HiddenContext } from "../App";
 import Sun from "../assets/desktop/icon-sun.svg";
 import Moon from "../assets/desktop/icon-moon.svg";
 import backgroundDay from "../assets/mobile/bg-image-daytime.jpg";
+import backgroundDayTablet from "../assets/tablet/bg-image-daytime.jpg";
+import backgroundNightTablet from "../assets/tablet/bg-image-nighttime.jpg";
 import backgroundNight from "../assets/mobile/bg-image-Nighttime.jpg";
 
 export default function WorldTimeApi() {
@@ -35,6 +37,8 @@ export default function WorldTimeApi() {
   const loc = location.split("/");
   const locationCity = loc[1];
 
+  const mediaQuery = window.matchMedia("(min-width: 768px)");
+
   useEffect(() => {
     const interval = setInterval(() => {
       const fetchData = async () => {
@@ -56,8 +60,11 @@ export default function WorldTimeApi() {
         document.body.style.backdropFilter = "brightness(60%)";
       } else if (unit === "AM") {
         document.body.style.backgroundImage = `url(${backgroundNight})`;
+        document.body.style.backdropFilter = "brightness(60%)";
       }
+
       fetchData();
+      query();
     }, 1000);
   }, []);
 
@@ -67,6 +74,12 @@ export default function WorldTimeApi() {
     hiddenBox.style.marginTop = "320px";
     moreBtn.style.marginTop = "9px";
     setHidden(false);
+
+    if (mediaQuery.matches) {
+      timeBox.style.marginTop = "73px";
+      moreBtn.style.marginTop = "-10px";
+      hiddenBox.style.marginTop = "446px";
+    }
   };
 
   const hiddenMore = () => {
@@ -74,6 +87,16 @@ export default function WorldTimeApi() {
     timeBox.style.marginTop = "188px";
     moreBtn.style.marginTop = "36px";
     setHidden(true);
+  };
+
+  const query = () => {
+    if (unit === "PM" && mediaQuery) {
+      document.body.style.backgroundImage = `url(${backgroundDayTablet})`;
+      document.body.style.backdropFilter = "brightness(60%)";
+    } else if (unit === "AM" && mediaQuery) {
+      document.body.style.backgroundImage = `url(${backgroundNightTablet})`;
+      document.body.style.backdropFilter = "brightness(60%)";
+    }
   };
 
   return (
@@ -84,6 +107,7 @@ export default function WorldTimeApi() {
           <p className="morning">
             {unit === "AM" && unitHours > 5 ? "GOOD MORNING" : "GOOD EVENING"}
           </p>
+          <p className="current">It's Currently</p>
         </div>
         <div className="format">
           <p className="hours">
@@ -96,7 +120,7 @@ export default function WorldTimeApi() {
       </div>
       <div>
         <div
-          className="more"
+          className={timeMinutes === undefined ? "moreHidden" : "more"}
           onClick={() => {
             hidden ? clickMore() : hiddenMore();
           }}
@@ -105,7 +129,7 @@ export default function WorldTimeApi() {
           <div className={hidden ? "oval" : "upSideDown"}></div>
         </div>
       </div>
-      <div className="box">
+      <div className={unit === "PM" ? "boxNight" : "box"}>
         <span>
           <p className="title">CURRENT TIMEZONE</p>
           <p className="info">{location}</p>

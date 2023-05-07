@@ -1,3 +1,8 @@
+:root {
+  --boxColorDay: rgba(255, 255, 255, 0.75);
+  --boxColorNight: rgba(0, 0, 0, 0.75);
+}
+
 .heroku {
   position: relative;
   margin-top: 188px;
@@ -34,7 +39,8 @@
 }
 
 .morning,
-.city {
+.city,
+.current {
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
@@ -43,6 +49,10 @@
   letter-spacing: 3px;
   text-transform: uppercase;
   color: #ffffff;
+}
+
+.current {
+  display: none;
 }
 
 .more {
@@ -59,12 +69,16 @@
   padding-right: 5px;
 }
 
+.moreHidden {
+  display: none;
+}
+
 .more p {
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 12px;
-  line-height: 14px;
+  line-window.matchMedia("(max-width: 700px)")height: 14px;
   letter-spacing: 3.75px;
   text-transform: uppercase;
   color: #000000;
@@ -124,7 +138,26 @@ img {
   background: rgba(255, 255, 255, 0.75);
 }
 
+.boxNight {
+  display: none;
+  position: fixed;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-top: 91px;
+  left: 0;
+  padding-left: 26px;
+  padding-right: 26px;
+  width: 100%;
+  height: 256px;
+  background: var(--boxColorNight);
+}
+
 .box span {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.boxNight span {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -141,4 +174,54 @@ img {
   font-size: 20px;
   line-height: 24px;
   color: #303030;
+}
+
+@media (min-width: 768px) {
+  .heroku {
+    margin-top: 200px;
+  }
+
+  .hours {
+    font-size: 175px;
+    font-weight: 700;
+    letter-spacing: -4.38px;
+    line-height: 175px;
+  }
+
+  .zone {
+    font-size: 32px;
+    line-height: 28px;
+  }
+
+  .morning,
+  .city,
+  .current {
+    font-size: 18px;
+    font-style: regular;
+    line-height: 28px;
+    letter-spacing: 3.6px;
+  }
+
+  .current {
+    display: block;
+  }
+
+  .more {
+    width: 146px;
+    height: 56px;
+    padding-left: 21px;
+    padding-right: 9px;
+  }
+
+  .more p {
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: 5px;
+    font-size: 16px;
+  }
+
+  .box {
+    height: 440px;
+    top: 135px;
+  }
 }
