@@ -8,7 +8,7 @@ import Moon from "../assets/desktop/icon-moon.svg";
 import backgroundDay from "../assets/mobile/bg-image-daytime.jpg";
 import backgroundDayTablet from "../assets/tablet/bg-image-daytime.jpg";
 import backgroundNightTablet from "../assets/tablet/bg-image-nighttime.jpg";
-import backgroundNight from "../assets/mobile/bg-image-Nighttime.jpg";
+import backgroundNight from "../assets/mobile/bg-image-nighttime.jpg";
 
 export default function WorldTimeApi() {
   const [data, setData] = useState();
