@@ -158,7 +158,15 @@ img {
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .heroku {
-    margin-top: 200px;
+    margin-top: 434px;
+  }
+
+  .content {
+    margin-top: 80px;
+  }
+
+  .refresh {
+    margin-top: 80px;
   }
 
   .hours {

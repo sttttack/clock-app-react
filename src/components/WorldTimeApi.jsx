@@ -103,13 +103,13 @@ export default function WorldTimeApi() {
       setHidden(false);
     } else if (mediaQuery.matches) {
       hiddenBox.style.display = "flex";
-      timeBox.style.marginTop = "73px";
+      timeBox.style.marginTop = "173px";
       moreBtn.style.marginTop = "-10px";
       hiddenBox.style.marginTop = "446px";
       setHidden(false);
     } else if (mediaQueryDesktop.matches) {
       hiddenBox.style.display = "flex";
-      hiddenBox.style.marginTop = "362px";
+      hiddenBox.style.marginTop = "427px";
       timeBox.style.marginTop = "61px";
       moreBtn.style.marginTop = "36px";
       setHidden(false);
@@ -117,10 +117,17 @@ export default function WorldTimeApi() {
   };
 
   const hiddenMore = () => {
-    hiddenBox.style.display = "none";
-    timeBox.style.marginTop = "188px";
-    moreBtn.style.marginTop = "36px";
-    setHidden(true);
+    if (mediaQueryMobile.matches) {
+      hiddenBox.style.display = "none";
+      timeBox.style.marginTop = "188px";
+      moreBtn.style.marginTop = "36px";
+      setHidden(true);
+    } else if (mediaQuery.matches) {
+      hiddenBox.style.display = "none";
+      timeBox.style.marginTop = "434px";
+      moreBtn.style.marginTop = "30px";
+      setHidden(true);
+    }
   };
 
   return (
