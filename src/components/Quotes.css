@@ -56,3 +56,9 @@
     left: 16px;
   }
 }
+
+@media (min-width: 1440px) {
+  .quotes {
+    font-size: 18px;
+  }
+}

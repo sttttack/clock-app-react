@@ -6,7 +6,7 @@
 
 body {
   background-repeat: no-repeat;
-  background-size: auto 100%;
+  background-size: 100vb 100vb;
   width: 100%;
   height: 100vh;
   padding-left: 26px;
@@ -14,9 +14,22 @@ body {
   padding-top: 32px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) and (max-width: 1024px) {
   body {
     padding-top: 80px;
     padding-left: 64px;
+    width: 100;
+    height: 100vh;
+    background-size: 100% 100%;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+  body {
+    padding-left: 165px;
+    padding-top: 56px;
+    height: 100vh;
+    background-size: 100% 100%;
+    overflow: hidden;
   }
 }

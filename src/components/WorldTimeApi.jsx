@@ -6,9 +6,11 @@ import { HiddenContext } from "../App";
 import Sun from "../assets/desktop/icon-sun.svg";
 import Moon from "../assets/desktop/icon-moon.svg";
 import backgroundDay from "../assets/mobile/bg-image-daytime.jpg";
+import backgroundNight from "../assets/mobile/bg-image-nighttime.jpg";
 import backgroundDayTablet from "../assets/tablet/bg-image-daytime.jpg";
 import backgroundNightTablet from "../assets/tablet/bg-image-nighttime.jpg";
-import backgroundNight from "../assets/mobile/bg-image-nighttime.jpg";
+import bgDayDesktop from "../assets/desktop/bg-image-daytime.jpg";
+import bgNightDesktop from "../assets/desktop/bg-image-nighttime.jpg";
 
 export default function WorldTimeApi() {
   const [data, setData] = useState();
@@ -37,7 +39,11 @@ export default function WorldTimeApi() {
   const loc = location.split("/");
   const locationCity = loc[1];
 
-  const mediaQuery = window.matchMedia("(min-width: 768px)");
+  const mediaQueryMobile = window.matchMedia("(max-width: 767px)");
+  const mediaQuery = window.matchMedia(
+    "(min-width: 768px) and (max-width: 1023px)"
+  );
+  const mediaQueryDesktop = window.matchMedia("(min-width: 1024px)");
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -55,30 +61,58 @@ export default function WorldTimeApi() {
         setNumber(json.week_number);
       };
 
-      if (unit === "PM") {
-        document.body.style.backgroundImage = `url(${backgroundDay})`;
-        document.body.style.backdropFilter = "brightness(60%)";
-      } else if (unit === "AM") {
-        document.body.style.backgroundImage = `url(${backgroundNight})`;
-        document.body.style.backdropFilter = "brightness(60%)";
-      }
-
       fetchData();
-      query();
+      setBackgroundImage();
     }, 1000);
   }, []);
 
-  const clickMore = () => {
-    hiddenBox.style.display = "flex";
-    timeBox.style.marginTop = "60px";
-    hiddenBox.style.marginTop = "320px";
-    moreBtn.style.marginTop = "9px";
-    setHidden(false);
+  function setBackgroundImage() {
+    if (mediaQueryMobile.matches && unit !== "PM") {
+      document.body.style.backgroundImage = `url(${backgroundDay})`;
+      document.body.style.backdropFilter = "brightness(60%)";
+    } else if (mediaQueryMobile.matches && unit !== "AM") {
+      document.body.style.backgroundImage = `url(${backgroundNight})`;
+      document.body.style.backdropFilter = "brightness(60%)";
+    } else if (mediaQuery.matches && unit !== "PM") {
+      document.body.style.backgroundImage = `url(${backgroundDayTablet})`;
+      document.body.style.backdropFilter = "brightness(60%)";
+    } else if (mediaQuery.matches && unit !== "AM") {
+      document.body.style.backgroundImage = `url(${backgroundNightTablet})`;
+      document.body.style.backdropFilter = "brightness(60%)";
+    } else if (mediaQueryDesktop.matches && unit !== "PM") {
+      document.body.style.backgroundImage = `url(${bgDayDesktop})`;
+      document.body.style.backdropFilter = "brightness(60%)";
+    } else if (mediaQueryDesktop.matches && unit !== "AM") {
+      document.body.style.backgroundImage = `url(${bgNightDesktop})`;
+      document.body.style.backdropFilter = "brightness(60%)";
+    }
+  }
 
-    if (mediaQuery.matches) {
+  window.addEventListener("resize", () => {
+    setBackgroundImage();
+  });
+
+  // This part of the code, needs to be fixed...
+
+  const clickMore = () => {
+    if (mediaQueryMobile.matches) {
+      hiddenBox.style.display = "flex";
+      timeBox.style.marginTop = "60px";
+      hiddenBox.style.marginTop = "320px";
+      moreBtn.style.marginTop = "9px";
+      setHidden(false);
+    } else if (mediaQuery.matches) {
+      hiddenBox.style.display = "flex";
       timeBox.style.marginTop = "73px";
       moreBtn.style.marginTop = "-10px";
       hiddenBox.style.marginTop = "446px";
+      setHidden(false);
+    } else if (mediaQueryDesktop.matches) {
+      hiddenBox.style.display = "flex";
+      hiddenBox.style.marginTop = "362px";
+      timeBox.style.marginTop = "61px";
+      moreBtn.style.marginTop = "36px";
+      setHidden(false);
     }
   };
 
@@ -87,16 +121,6 @@ export default function WorldTimeApi() {
     timeBox.style.marginTop = "188px";
     moreBtn.style.marginTop = "36px";
     setHidden(true);
-  };
-
-  const query = () => {
-    if (unit === "PM" && mediaQuery) {
-      document.body.style.backgroundImage = `url(${backgroundDayTablet})`;
-      document.body.style.backdropFilter = "brightness(60%)";
-    } else if (unit === "AM" && mediaQuery) {
-      document.body.style.backgroundImage = `url(${backgroundNightTablet})`;
-      document.body.style.backdropFilter = "brightness(60%)";
-    }
   };
 
   return (
@@ -129,7 +153,7 @@ export default function WorldTimeApi() {
           <div className={hidden ? "oval" : "upSideDown"}></div>
         </div>
       </div>
-      <div className={unit === "PM" ? "boxNight" : "box"}>
+      <div className="box">
         <span>
           <p className="title">CURRENT TIMEZONE</p>
           <p className="info">{location}</p>
