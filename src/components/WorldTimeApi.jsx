@@ -129,6 +129,8 @@ export default function WorldTimeApi() {
       setHidden(true);
     } else if (mediaQueryDesktop) {
       hiddenBox.style.display = "none";
+      timeBox.style.marginTop = "180px";
+      moreBtn.style.marginTop = "30px";
       setHidden(true);
     }
   };
